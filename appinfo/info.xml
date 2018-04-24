@@ -1,31 +1,33 @@
 <?xml version="1.0"?>
 <info xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
 	<id>audioplayer_editor</id>
-	<name>Audio Player Tag Editor</name>
-	<summary>Tag Editor Plugin for Audio Player for Nextcloud and ownCloud</summary>
-	<description><![CDATA[A music player for FLAC, MP3, MP4, streams, and more with playlist support and Share Player.
+	<name>Audio Player Editor</name>
+	<summary>Tag editor add-on for Audio Player</summary>
+	<description><![CDATA[An ID3 editor for the Audio Player in Nextcloud and ownCloud.
 
-- ID3 tag editor (incl. picture)
+- ID3 tag editor
+- Picture support
 
-See [README](https://github.com/rello/audioplayer/blob/master/README.md) file for all supported MIME types and limitations.]]></description>
-    <version>0.0.1-beta.1</version>
+See [README](https://github.com/rello/audioplayer_editor/blob/master/README.md) file for more info and limitations.]]></description>
+    <version>0.0.1-alpha.1</version>
 	<licence>AGPL</licence>
 	<author>Marcel Scherello</author>
 	<namespace>audioplayer_editor</namespace>
 	<documentation>
-		<user>https://github.com/rello/audioplayer/wiki#user-documentation</user>
-		<admin>https://github.com/rello/audioplayer/wiki#admin-documentation</admin>
+		<user>https://github.com/rello/audioplayer_editor/wiki#user-documentation</user>
+		<admin>https://github.com/rello/audioplayer_editor/wiki#admin-documentation</admin>
 	</documentation>
 	<category>multimedia</category>
-	<website>https://rello.github.io/audioplayer</website>
-	<bugs>https://github.com/rello/audioplayer/issues</bugs>
-	<repository type="git">https://github.com/rello/audioplayer.git</repository>
+	<category>tools</category>
+	<website>https://github.com/rello/audioplayer_editor</website>
+	<bugs>https://github.com/rello/audioplayer_editor/issues</bugs>
+	<repository type="git">https://github.com/rello/audioplayer_editor.git</repository>
 	<discussion>https://help.nextcloud.com/c/apps/audioplayer</discussion>
 	<screenshot small-thumbnail="https://raw.githubusercontent.com/rello/audioplayer/master/screenshots/audioplayer_main_small.png">https://raw.githubusercontent.com/rello/audioplayer/master/screenshots/audioplayer_main.png</screenshot>
 	<dependencies>
-		<php min-version="5.6" max-version="7.2"/>
-		<nextcloud min-version="11" max-version="13"/>
-		<owncloud min-version="9.1" max-version="10.0"/>
+		<php min-version="7.0" max-version="7.2"/>
+		<nextcloud min-version="12" max-version="14"/>
+		<owncloud min-version="10.0" max-version="10.1"/>
 	</dependencies>
 	<types>
    		<filesystem/>
