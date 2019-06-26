@@ -2,7 +2,7 @@
 repository: rello/audioplayer_editor
 theme: jekyll-theme-cayman
 timezone: Europe/Berlin
-name: "Audio Player Editor"
+name: "Audio Player - ID3 Editor"
 title: "Audio Player Editor"
 description: "Audio Player for Nextcloud and ownCloud"
 url: "https://github.com/rello/audioplayer_editor"

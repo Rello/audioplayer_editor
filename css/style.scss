@@ -9,24 +9,24 @@
  */
 
 #ID3EditorTabView .table {
-    margin-left: 2em;
+  margin-left: 2em;
 }
 
 #ID3EditorTabView .key {
-    color: #999;
-    padding-right: 1em;
-    vertical-align: top;
-    display: table-cell;
+  color: #999;
+  padding-right: 1em;
+  vertical-align: top;
+  display: table-cell;
 }
 
 #ID3EditorTabView .value {
-    width: 100%;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    max-width: 1px;
-    display: table-cell;
+  width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 1px;
+  display: table-cell;
 }
 
 .contenteditable {
-    border: 1px solid #eee;
+  border: 1px solid #eee;
 }
