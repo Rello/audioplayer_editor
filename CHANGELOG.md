@@ -1,21 +1,7 @@
 # Changelog
 All notable changes to the Audio Player project will be documented in this file.
 
-## Unreleased
+## 1.0.0 - unreleased
+
 ### Added
-- 
-
-### Changed
-- 
-
-### Deprecated
-- 
-
-### Removed
-- 
-
-### Fixed
-- 
-
-### Security
-- 
+- Initial add-on version for the Audio Player app

@@ -28,12 +28,11 @@ if (!OCA.Audioplayer.Editor) {
  */
 OCA.Audioplayer.Editor = {
 
-    APEditorTabView: function () {
+    ID3EditorTabView: function () {
         var trackid = $("#app-sidebar").data('trackid');
 
-        $('#tabHeaderAudiplayer').removeClass('selected');
+        OCA.Audioplayer.Sidebar.resetView();
         $('#tabHeaderID3Editor').addClass('selected');
-        $('#audioplayerTabView').addClass('hidden');
         $('#ID3EditorTabView').removeClass('hidden').html('<div style="text-align:center; word-wrap:break-word;" class="get-metadata"><p><img src="' + OC.imagePath('core', 'loading.gif') + '"><br><br></p><p>' + t('audioplayer', 'Reading data') + '</p></div>');
 
         $.ajax({
@@ -107,7 +106,7 @@ $(document).ready(function () {
         class: 'ID3EditorTabView',
         tabindex: '2',
         name: t('audioplayer', 'ID3 Editor'),
-        action: OCA.Audioplayer.Editor.APEditorTabView,
+        action: OCA.Audioplayer.Editor.ID3EditorTabView,
     });
 });
 

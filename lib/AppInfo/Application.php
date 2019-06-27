@@ -6,7 +6,7 @@
  * later. See the LICENSE.md file.
  *
  * @author Marcel Scherello <audioplayer@scherello.de>
- * @copyright 2018 Marcel Scherello
+ * @copyright 2019 Marcel Scherello
  */
 
 namespace OCA\audioplayer_editor\AppInfo;
