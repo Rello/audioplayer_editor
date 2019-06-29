@@ -11,7 +11,6 @@
 
 namespace OCA\audioplayer_editor\AppInfo;
 
-use \OCA\audioplayer_editor\AppInfo\Application;
 
 $application = new Application();
 

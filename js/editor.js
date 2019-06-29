@@ -69,7 +69,8 @@ OCA.Audioplayer.Editor = {
                             tablevalue.dataset.key = m;
                             tablevalue.dataset.trackid = trackid;
                             tablevalue.dataset.value = audioinfo[m];
-                            tablevalue.addEventListener('click', OCA.Audioplayer.Editor.editId3Field.bind($this));
+                            tablevalue.id = 'edit-' + m;
+                            tablevalue.addEventListener('click', OCA.Audioplayer.Editor.editId3Field, true);
                             tablerow.appendChild(tablekey);
                             tablerow.appendChild(tablevalue);
                             table.appendChild(tablerow);
@@ -86,24 +87,54 @@ OCA.Audioplayer.Editor = {
     },
 
     editId3Field: function (evt) {
-        var trackid = document.getElementById('app-sidebar').dataset.trackid;
-        trackKey = $(evt.target).attr('data-key');
+        var target = evt.target;
 
-        $('.contenteditable').each(function (i, el) {
-            $(el).removeAttr('contenteditable')
-                .removeClass('contenteditable')
-                .text($(el).attr('data-value'))
-                .click($this.editId3Field.bind($this));
+        var contenteditable = document.querySelectorAll(".contenteditable");
+        for (var i = 0, len = contenteditable.length; i < len; i++) {
+            contenteditable[i].removeAttribute('contenteditable');
+            contenteditable[i].classList.remove('contenteditable');
+            contenteditable[i].innerText = contenteditable[i].getAttribute('data-value');
+            contenteditable[i].addEventListener('click', OCA.Audioplayer.Editor.editId3Field, true);
+        }
+
+        var newtarget = target.cloneNode(true);
+        target.parentNode.replaceChild(newtarget, target);
+
+        newtarget.setAttribute('contenteditable', true);
+        newtarget.classList.add('contenteditable');
+        newtarget.addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                OCA.Audioplayer.Editor.saveId3Field(evt);
+            }
+        });
+    },
+
+    saveId3Field: function (evt) {
+        var trackid = document.getElementById('app-sidebar').dataset.trackid;
+        var editKey = evt.target.dataset.key;
+        var editValue = document.getElementById('edit-' + editKey).innerText;
+        document.getElementById('edit-' + editKey).dataset.value = editValue;
+
+        $.ajax({
+            type: 'POST',
+            url: OC.generateUrl('apps/audioplayer_editor/savemetadata'),
+            data: {
+                'trackid': trackid,
+                'editKey': editKey,
+                'editValue': editValue
+            },
+            success: function (ajax_data) {
+            }
         });
 
-        $(evt.target).attr({'contenteditable': true})
-            .addClass('contenteditable')
-            .keypress(function (e) {
-                if (e.which === 13) {
-                    $this.saveId3Field(evt);
-                }
-            })
-            .unbind("click").append('<span class="icon-checkmark"></span>');
+        var contenteditable = document.querySelectorAll(".contenteditable");
+        for (var i = 0, len = contenteditable.length; i < len; i++) {
+            contenteditable[i].removeAttribute('contenteditable');
+            contenteditable[i].classList.remove('contenteditable');
+            contenteditable[i].innerText = contenteditable[i].getAttribute('data-value');
+            contenteditable[i].addEventListener('click', OCA.Audioplayer.Editor.editId3Field, true);
+        }
     },
 
 };

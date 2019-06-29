@@ -19,7 +19,6 @@ use OCP\IDbConnection;
 use OCP\Files\IRootFolder;
 use \OC\Files\View; //remove when editAudioFiles is updated and toTmpFile alternative
 use OCP\ILogger;
-use OCA\audioplayer\DbController;
 
 /**
  * Controller class for main page.
@@ -58,12 +57,13 @@ class EditorController extends Controller {
 
     /**
      * Save meta data per field from sidebar
-     * @param int $track_id
+     * @param int $trackid
      * @param string $editKey
      * @param string $editValue
      * @return bool
      */
-    public function saveMetaData($track_id, $editKey, $editValue) {
+    public function saveMetaData($trackid, $editKey, $editValue)
+    {
 
         $directEditArray = ['Title' => 'title', 'Genre' => '', 'Album' => '', 'Year' => 'year', 'Artist' => '', 'Disc' => 'disc', 'Track' => 'number'];
         $updateKey = $directEditArray[$editKey];
@@ -78,8 +78,8 @@ class EditorController extends Controller {
         }
 
         if ($updateKey !== '' AND $editValue !== ''){
-            $this->DBController->updateTrack($this->userId, $track_id, $updateKey, $editValue);
-            $this->DBController->cleanupDb($this->userId);
+            $this->DBController->updateTrack($this->userId, $trackid, $updateKey, $editValue);
+            //$this->DBController->cleanupDb($this->userId);
         }
         return true;
     }
