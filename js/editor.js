@@ -1,5 +1,5 @@
 /**
- * Audio Player Tag Editor
+ * Audio Player Editor
  *
  * This file is licensed under the Affero General Public License version 3 or
  * later. See the LICENSE.md file.
@@ -7,7 +7,6 @@
  * @author Marcel Scherello <audioplayer@scherello.de>
  * @copyright 2019 Marcel Scherello
  */
-
 
 if (!OCA.Audioplayer) {
     /**
@@ -34,7 +33,7 @@ OCA.Audioplayer.Editor = {
         OCA.Audioplayer.Sidebar.resetView();
         document.getElementById('tabHeaderID3Editor').classList.add('selected');
         document.getElementById('ID3EditorTabView').classList.remove('hidden');
-        document.getElementById('ID3EditorTabView').innerHTML = '<div style="text-align:center; word-wrap:break-word;" class="get-metadata"><p><img src="' + OC.imagePath('core', 'loading.gif') + '"><br><br></p><p>' + t('audioplayer', 'Reading data') + '</p></div>';
+        document.getElementById('ID3EditorTabView').innerHTML = '<div style="text-align:center; word-wrap:break-word;" class="get-metadata"><p><img src="' + OC.imagePath('core', 'loading.gif') + '"><br><br></p><p>' + t('audioplayer_editor', 'Reading data') + '</p></div>';
 
         $.ajax({
             type: 'GET',
@@ -44,7 +43,7 @@ OCA.Audioplayer.Editor = {
                 var table;
                 if (jsondata.status === 'success') {
 
-                    var edit_array = ['Title', 'Genre', 'Year', 'Artist', 'Disc', 'Track'];
+                    var edit_array = ['Title', 'Subtitle', 'Genre', 'Year', 'Artist', 'Disc', 'Track'];
                     table = document.createElement('div');
                     table.style.display = 'table';
                     table.classList.add('table');
@@ -56,32 +55,40 @@ OCA.Audioplayer.Editor = {
 
                     var audioinfo = jsondata.data;
                     for (m in audioinfo) {
-                        if (edit_array.indexOf(m) !== -1) {
-                            tablerow = document.createElement('div');
-                            tablerow.style.display = 'table-row';
-                            tablekey = document.createElement('div');
-                            tablekey.classList.add('key');
-                            tablekey.innerText = t('audioplayer', m);
-                            tablevalue = document.createElement('div');
-                            tablevalue.style.cursor = 'text';
-                            tablevalue.classList.add('value');
-                            tablevalue.innerText = audioinfo[m];
-                            tablevalue.dataset.key = m;
-                            tablevalue.dataset.trackid = trackid;
-                            tablevalue.dataset.value = audioinfo[m];
-                            tablevalue.id = 'edit-' + m;
-                            tablevalue.addEventListener('click', OCA.Audioplayer.Editor.editId3Field, true);
-                            tablerow.appendChild(tablekey);
-                            tablerow.appendChild(tablevalue);
-                            table.appendChild(tablerow);
-                            count++;
+                        if (audioinfo.hasOwnProperty(m)) {
+                            if (edit_array.indexOf(m) !== -1) {
+                                tablerow = document.createElement('div');
+                                tablerow.style.display = 'table-row';
+                                tablekey = document.createElement('div');
+                                tablekey.classList.add('key');
+                                tablekey.innerText = t('audioplayer', m);
+                                tablevalue = document.createElement('div');
+                                tablevalue.style.cursor = 'text';
+                                tablevalue.classList.add('value');
+                                tablevalue.innerText = audioinfo[m];
+                                tablevalue.dataset.key = m;
+                                tablevalue.dataset.trackid = trackid;
+                                tablevalue.dataset.value = audioinfo[m];
+                                tablevalue.id = 'edit-' + m;
+                                tablevalue.addEventListener('click', OCA.Audioplayer.Editor.editId3Field, true);
+                                tablerow.appendChild(tablekey);
+                                tablerow.appendChild(tablevalue);
+                                table.appendChild(tablerow);
+                                count++;
+                            }
                         }
                     }
+                    document.getElementById('ID3EditorTabView').innerHTML = '';
+                    document.getElementById('ID3EditorTabView').appendChild(table);
+                    var infodiv = document.createElement('div');
+                    infodiv.innerText = t('audioplayer_editor', 'BETA VERSION');
+                    var infodiv2 = document.createElement('div');
+                    infodiv2.innerText = t('audioplayer_editor', 'This version does only modify the Audio Player entry. No file metadata is changed (yet)');
+                    document.getElementById('ID3EditorTabView').appendChild(infodiv);
+                    document.getElementById('ID3EditorTabView').appendChild(infodiv2);
                 } else {
-                    table = t('audioplayer', 'No Data');
+                    document.getElementById('ID3EditorTabView').innerHTML = t('audioplayer_editor', 'No Data');
                 }
-                document.getElementById('ID3EditorTabView').innerHTML = '';
-                document.getElementById('ID3EditorTabView').appendChild(table);
             }
         });
     },
@@ -89,7 +96,7 @@ OCA.Audioplayer.Editor = {
     editId3Field: function (evt) {
         var target = evt.target;
 
-        var contenteditable = document.querySelectorAll(".contenteditable");
+        var contenteditable = document.querySelectorAll('.contenteditable');
         for (var i = 0, len = contenteditable.length; i < len; i++) {
             contenteditable[i].removeAttribute('contenteditable');
             contenteditable[i].classList.remove('contenteditable');
@@ -102,8 +109,8 @@ OCA.Audioplayer.Editor = {
 
         newtarget.setAttribute('contenteditable', true);
         newtarget.classList.add('contenteditable');
-        newtarget.addEventListener("keydown", function (event) {
-            if (event.key === "Enter") {
+        newtarget.addEventListener('keydown', function (event) {
+            if (event.key === 'Enter') {
                 event.preventDefault();
                 OCA.Audioplayer.Editor.saveId3Field(evt);
             }
@@ -128,7 +135,7 @@ OCA.Audioplayer.Editor = {
             }
         });
 
-        var contenteditable = document.querySelectorAll(".contenteditable");
+        var contenteditable = document.querySelectorAll('.contenteditable');
         for (var i = 0, len = contenteditable.length; i < len; i++) {
             contenteditable[i].removeAttribute('contenteditable');
             contenteditable[i].classList.remove('contenteditable');
@@ -144,8 +151,7 @@ document.addEventListener('DOMContentLoaded', function () {
         id: 'tabHeaderID3Editor',
         class: 'ID3EditorTabView',
         tabindex: '2',
-        name: t('audioplayer', 'ID3 Editor'),
+        name: t('audioplayer_editor', 'ID3 Editor'),
         action: OCA.Audioplayer.Editor.ID3EditorTabView,
     });
 });
-

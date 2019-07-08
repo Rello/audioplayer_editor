@@ -1,14 +1,12 @@
 <?php
 /**
- * Audio Player
+ * Audio Player Editor
  *
  * This file is licensed under the Affero General Public License version 3 or
  * later. See the LICENSE.md file.
  *
  * @author Marcel Scherello <audioplayer@scherello.de>
- * @author Sebastian Doell <sebastian@libasys.de>
- * @copyright 2016-2017 Marcel Scherello
- * @copyright 2015 Sebastian Doell
+ * @copyright 2019 Marcel Scherello
  */
 
 namespace OCA\audioplayer\Controller;

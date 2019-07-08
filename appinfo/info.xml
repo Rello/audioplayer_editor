@@ -1,15 +1,16 @@
 <?xml version="1.0"?>
 <info xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
 	<id>audioplayer_editor</id>
-	<name>ID3 Editor (Audio Player add-on)</name>
-	<summary>ID3 editor add-on for Audio Player</summary>
-	<description><![CDATA[An ID3 editor add-on for the Audio Player in Nextcloud and ownCloud.
+	<name>Audio Player - ID3 Editor (add-on)</name>
+	<summary>Change ID3 Metadata</summary>
+	<description><![CDATA[ID3 editor add-on for the Audio Player in Nextcloud and ownCloud.
 
-- ID3 tag editor
-- Picture support
+- ID3 editor (Audio Player library)
+- ID3 editor (file update pending)
+- Picture support (pending)
 
 See [README](https://github.com/rello/audioplayer_editor/blob/master/README.md) file for more info and limitations.]]></description>
-    <version>0.0.1-alpha.1</version>
+	<version>1.0.0</version>
 	<licence>agpl</licence>
 	<author>Marcel Scherello</author>
 	<namespace>audioplayer_editor</namespace>
@@ -25,7 +26,7 @@ See [README](https://github.com/rello/audioplayer_editor/blob/master/README.md) 
 	<screenshot small-thumbnail="https://raw.githubusercontent.com/rello/audioplayer/master/screenshots/audioplayer_main_small.png">https://raw.githubusercontent.com/rello/audioplayer/master/screenshots/audioplayer_main.png</screenshot>
 	<dependencies>
 		<php min-version="7.0" max-version="7.3"/>
-		<nextcloud min-version="14" max-version="16"/>
+		<nextcloud min-version="14" max-version="17"/>
 		<owncloud min-version="9" max-version="10"/>
 	</dependencies>
 	<types>
