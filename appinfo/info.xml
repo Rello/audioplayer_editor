@@ -4,13 +4,14 @@
 	<name>Audio Player - ID3 Editor (add-on)</name>
 	<summary>Change ID3 Metadata</summary>
 	<description><![CDATA[ID3 editor add-on for the Audio Player in Nextcloud and ownCloud.
+	Audio Player > v2.8 required
 
 - ID3 editor (Audio Player library)
 - ID3 editor (file update pending)
 - Picture support (pending)
 
 See [README](https://github.com/rello/audioplayer_editor/blob/master/README.md) file for more info and limitations.]]></description>
-	<version>1.0.0</version>
+    <version>0.0.1</version>
 	<licence>agpl</licence>
 	<author>Marcel Scherello</author>
 	<namespace>audioplayer_editor</namespace>
