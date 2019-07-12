@@ -7,12 +7,10 @@ ID3 editor add-on for the Audio Player in Nextcloud and ownCloud.
 Audio Player > v2.8 required
 
 ## Features
-- ID3 editor (Audio Player library)
-- ID3 editor (file update pending)
-- Picture support (pending)
-
-### Languages
-English (en), German (Informal) (de), German (Formal) (de_DE)
+- Editor integrated into sidebar
+- Updating the ID3 in the library
+- Updating the audio files (coming soon)
+- Picture support (coming soon)
 
 ## Installation
 - [Nextcloud App Store](https://apps.nextcloud.com/apps/audioplayer_editor)
@@ -20,7 +18,6 @@ English (en), German (Informal) (de), German (Formal) (de_DE)
 
 This is not an independent app! 
 You have to install the [Audio Player](https://github.com/rello/audioplayer "Audio Player for Nextcloud and ownCloud") app (**>v2.8**) to use this add-on.
-
 
 ## Maintainers
 - [Marcel Scherello](https://github.com/rello) (author, project leader)

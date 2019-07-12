@@ -6,8 +6,9 @@
 	<description><![CDATA[ID3 editor add-on for the Audio Player in Nextcloud and ownCloud.
 	Audio Player > v2.8 required
 
-- ID3 editor updating library
-- ID3 editor updating files (coming soon)
+- Editor integrated into sidebar
+- Updating the ID3 in the library
+- Updating the audio files (coming soon)
 - Picture support (coming soon)
 ]]></description>
     <version>0.0.1</version>
