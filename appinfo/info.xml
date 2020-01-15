@@ -11,7 +11,7 @@
 - Updating the audio files (coming soon)
 - Picture support (coming soon)
 ]]></description>
-	<version>0.1.0</version>
+	<version>0.2.0</version>
 	<licence>agpl</licence>
 	<author>Marcel Scherello</author>
 	<namespace>audioplayer_editor</namespace>
@@ -20,12 +20,12 @@
 	<bugs>https://github.com/rello/audioplayer_editor/issues</bugs>
 	<repository type="git">https://github.com/rello/audioplayer_editor.git</repository>
 	<discussion>https://help.nextcloud.com/c/apps/audioplayer</discussion>
-    <screenshot>
-        https://raw.githubusercontent.com/rello/audioplayer_editor/master/screenshots/audioplayer_editor_logo.png
+	<screenshot>
+		https://raw.githubusercontent.com/rello/audioplayer_editor/master/screenshots/audioplayer_editor_logo.png
     </screenshot>
 	<dependencies>
 		<php min-version="7.0" max-version="7.3"/>
-		<nextcloud min-version="14" max-version="17"/>
+		<nextcloud min-version="14" max-version="18"/>
 		<owncloud min-version="9" max-version="10"/>
 	</dependencies>
 	<types>
