@@ -1,8 +1,12 @@
 # Changelog
 All notable changes to the Audio Player project will be documented in this file.
 
+## 0.2.2 - 2020-04-12
+### Added
+- NC 19
+
 ## 0.2.1 - 2020-04-09
-### Changed
+### Added
 - PHP 7.4
 
 ## 0.2.0 - 2020-01-15
