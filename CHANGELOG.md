@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to the Audio Player project will be documented in this file.
 
+## 0.3.0 - 2020-10-01
+### Added
+- NC 20
+
 ## 0.2.2 - 2020-04-12
 ### Added
 - NC 19
